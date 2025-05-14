@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://g8d20vsv1ymg"]
+
+[ext_resource type="Script" uid="uid://rdfln4f2snbp" path="res://player/testplayer.gd" id="1_iqy31"]
+[ext_resource type="Script" uid="uid://bj4g3bd3ywdjo" path="res://player/camfollow.gd" id="2_5anvd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qss0j"]
+albedo_color = Color(0.329412, 0.533333, 0.807843, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_45txj"]
+material = SubResource("StandardMaterial3D_qss0j")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l43wm"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lgc2n"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="testplayer" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_iqy31")
+
+[node name="testplayer" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_45txj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_l43wm")
+
+[node name="camfollow" type="Node3D" parent="."]
+script = ExtResource("2_5anvd")
+
+[node name="Camera3D" type="Camera3D" parent="camfollow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901, 0.209)
+near = 0.032
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_lgc2n")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+target_position = Vector3(0, 0, -1.5)

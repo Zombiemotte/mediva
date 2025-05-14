@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfx5p0chlaj5n"]
+
+[ext_resource type="PackedScene" uid="uid://h4lur2rbk2rr" path="res://map/baum.tscn" id="1_etq80"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8t7lf"]
+albedo_color = Color(0.450648, 0.450648, 0.450648, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etq80"]
+albedo_color = Color(0.27451, 0.647059, 0, 1)
+
+[node name="testmap" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.560639, 0.82806, 0, -0.82806, -0.560639, -0.24462, 19.8565, -8.08107)
+
+[node name="felsen" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.86833, -24.3972, 10.1147)
+use_collision = true
+collision_mask = 0
+radius = 6.266
+height = 12.075
+material = SubResource("StandardMaterial3D_8t7lf")
+
+[node name="stuffe" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93638, -20.2744, 11.765)
+use_collision = true
+collision_mask = 0
+size = Vector3(3.5282, 2.25898, 4.25333)
+
+[node name="boden" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+use_collision = true
+collision_mask = 0
+size = Vector3(128.028, 0.001, 124.874)
+material = SubResource("StandardMaterial3D_etq80")
+
+[node name="baum" parent="." instance=ExtResource("1_etq80")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -19, -14)
+
+[node name="baum2" parent="." instance=ExtResource("1_etq80")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 13, -19, -20)
+
+[node name="baum3" parent="." instance=ExtResource("1_etq80")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -19, -20)
+
+[node name="baum4" parent="." instance=ExtResource("1_etq80")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 9, -18, -43)
