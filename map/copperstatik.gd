@@ -13,5 +13,4 @@ func baumernten(player):
 
 @rpc("any_peer","call_local")
 func treeausotter():
-	if is_multiplayer_authority():
-		queue_free()
+	queue_free()

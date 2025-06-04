@@ -1,5 +1,5 @@
 extends StaticBody3D
-var treecount =2
+@export var treecount =2
 
 func baumernten(player):
 	treeotter.rpc()
@@ -16,5 +16,4 @@ func treeotter():
 
 @rpc("any_peer","call_local")
 func treeausotter():
-	if is_multiplayer_authority():
 		queue_free()
