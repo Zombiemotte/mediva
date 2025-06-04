@@ -2,6 +2,8 @@ extends CharacterBody3D
 @export var camerapov =1500
 var objekttreffer
 var wood =0
+var copper =0
+var rock =0
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5

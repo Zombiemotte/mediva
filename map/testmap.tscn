@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfx5p0chlaj5n"]
+[gd_scene load_steps=6 format=3 uid="uid://cfx5p0chlaj5n"]
 
 [ext_resource type="PackedScene" uid="uid://h4lur2rbk2rr" path="res://map/baum.tscn" id="1_etq80"]
 [ext_resource type="PackedScene" uid="uid://rtvpi0k6h5cf" path="res://map/copperstatik.tscn" id="2_8t7lf"]
+[ext_resource type="PackedScene" uid="uid://bwjximmtty7d1" path="res://map/stone.tscn" id="3_hrjrc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8t7lf"]
 albedo_color = Color(0.450648, 0.450648, 0.450648, 1)
@@ -49,3 +50,9 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 
 [node name="copperstatik" parent="." instance=ExtResource("2_8t7lf")]
 transform = Transform3D(1, 0, 0, 0, 0.833857, -0.551981, 0, 0.551981, 0.833857, 21.3199, -19.4881, 0)
+
+[node name="STONE" parent="." instance=ExtResource("3_hrjrc")]
+transform = Transform3D(-0.788032, 0.138076, -0.599951, -0.613778, -0.251827, 0.748237, -0.0477704, 0.957872, 0.283196, 27.4425, -20.1104, 11.476)
+
+[node name="STONE2" parent="." instance=ExtResource("3_hrjrc")]
+transform = Transform3D(-0.0173153, 0.990567, 0.135935, 0.979679, -0.0103627, 0.200305, 0.199824, 0.136641, -0.970258, -26.2299, -20.1104, 31.955)
