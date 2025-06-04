@@ -1,6 +1,7 @@
 extends CharacterBody3D
 @export var camerapov =1500
-
+var objekttreffer
+var wood =0
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -53,5 +54,8 @@ func _input(event):
 		
 func treffer():
 	if $RayCast3D.is_colliding():
-		print('print')
+		objekttreffer = $RayCast3D.get_collider()
+		if objekttreffer.is_in_group("resourcengruppe"):
+			objekttreffer.baumernten(self)
+		
 	pass

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://rtvpi0k6h5cf"]
+
+[ext_resource type="PackedScene" uid="uid://d102t0r56dabx" path="res://coperedstone.blend" id="1_j483k"]
+
+[node name="copperstatik" type="StaticBody3D"]
+
+[node name="coperedstone" parent="." instance=ExtResource("1_j483k")]

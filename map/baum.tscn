@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://h4lur2rbk2rr"]
+[gd_scene load_steps=6 format=3 uid="uid://h4lur2rbk2rr"]
 
 [ext_resource type="PackedScene" uid="uid://c61sqpaxixwrg" path="res://Untitled.blend" id="1_34x0h"]
+[ext_resource type="Script" uid="uid://bxwqme2gp8akt" path="res://map/baum.gd" id="1_45qnk"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_45qnk"]
 height = 4.62109
@@ -9,15 +10,25 @@ radius = 0.373047
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8wytr"]
 height = 0.528687
 
-[node name="baum" type="StaticBody3D"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_45qnk"]
+properties/0/path = NodePath(".:rotation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="baum" type="StaticBody3D" groups=["resourcengruppe"]]
 collision_mask = 0
+script = ExtResource("1_45qnk")
 
 [node name="stamm" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60261, -0.0210119, -1.54763)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0844378, -0.0210119, 0.279591)
 shape = SubResource("CylinderShape3D_45qnk")
 
 [node name="Untitled" parent="." instance=ExtResource("1_34x0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.68705, 0, 1.82722)
 
 [node name="wurzel" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.874359, 0.484665, 0.0244322, 0.48481, -0.87462, 0, 0.0213689, 0.011845, -0.999701, 2.67714, -1.09828, -1.52989)
+transform = Transform3D(0.874359, 0.484665, 0.0244322, 0.48481, -0.87462, 0, 0.0213689, 0.011845, -0.999701, -0.00990796, -1.09828, 0.297331)
 shape = SubResource("CylinderShape3D_8wytr")
+
+[node name="BaumSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_45qnk")

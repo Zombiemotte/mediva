@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfx5p0chlaj5n"]
+[gd_scene load_steps=5 format=3 uid="uid://cfx5p0chlaj5n"]
 
 [ext_resource type="PackedScene" uid="uid://h4lur2rbk2rr" path="res://map/baum.tscn" id="1_etq80"]
+[ext_resource type="PackedScene" uid="uid://rtvpi0k6h5cf" path="res://map/copperstatik.tscn" id="2_8t7lf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8t7lf"]
 albedo_color = Color(0.450648, 0.450648, 0.450648, 1)
@@ -45,3 +46,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -19, -20)
 
 [node name="baum4" parent="." instance=ExtResource("1_etq80")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 9, -18, -43)
+
+[node name="copperstatik" parent="." instance=ExtResource("2_8t7lf")]
+transform = Transform3D(1, 0, 0, 0, 0.833857, -0.551981, 0, 0.551981, 0.833857, 21.3199, -19.4881, 0)
