@@ -1,6 +1,6 @@
 res://main.tscn
-res://map/baum.gd
-res://map/copperstatik.gd
-res://map/stone.gd
+res://map/testmap.tscn
 res://map/stone.tscn
 res://map/baum.tscn
+res://map/testmap.gd
+res://map/unno.tscn

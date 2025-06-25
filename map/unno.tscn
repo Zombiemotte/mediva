@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://df2l8ykusbgi2"]
+
+[ext_resource type="PackedScene" uid="uid://cvqlwmcs67ij5" path="res://plant_UNO.blend" id="1_cjka0"]
+
+[node name="unno" type="Node3D"]
+
+[node name="plant_UNO" parent="." instance=ExtResource("1_cjka0")]
