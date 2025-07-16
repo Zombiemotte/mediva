@@ -1,6 +1,11 @@
-res://main.tscn
 res://map/testmap.tscn
+res://main.tscn
 res://map/stone.tscn
 res://map/baum.tscn
-res://map/testmap.gd
 res://map/unno.tscn
+res://map/testmap.gd
+res://map/copperstatik.tscn
+res://player/testplayer.tscn
+res://main.gd
+res://map/baum/baum_2d.tscn
+res://map/baum.gd

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://te07qmxeokro"]
+
+[ext_resource type="Script" uid="uid://bxwqme2gp8akt" path="res://map/baum.gd" id="1_6h3d3"]
+[ext_resource type="PackedScene" uid="uid://dds1y5glyfyvc" path="res://map/baum/tree2mediva.blend" id="1_k0myb"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k0myb"]
+height = 4.0
+radius = 0.261719
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_6h3d3"]
+properties/0/path = NodePath(".:rotation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:treecount")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="baum2D" type="StaticBody3D" groups=["resourcengruppe"]]
+collision_mask = 0
+script = ExtResource("1_6h3d3")
+
+[node name="tree2mediva" parent="." instance=ExtResource("1_k0myb")]
+
+[node name="stamm2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_k0myb")
+
+[node name="BaumSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_6h3d3")
