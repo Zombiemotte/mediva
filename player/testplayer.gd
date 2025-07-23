@@ -5,6 +5,8 @@ var wood =0
 var copper =0
 var rock =0
 
+
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
@@ -22,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if Input.is_action_just_pressed("schlagen") and is_on_floor():
+	if Input.is_action_just_pressed("schlagen"):
 		treffer()
 		
 	# Handle jump.
@@ -41,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-	
+	inventar()
 	if Input.is_action_just_pressed("ui_cancel"):
 		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -61,3 +63,11 @@ func treffer():
 			objekttreffer.baumernten(self)
 		
 	pass
+
+
+func inventar():
+	if Input.is_action_just_pressed("inventaranaus"):
+		$inventar.visible = !$inventar.visible
+		
+func gather(object):
+	$inventar.manage(object);
