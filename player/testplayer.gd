@@ -1,10 +1,11 @@
 extends CharacterBody3D
 @export var camerapov =1500
 var objekttreffer
+var invfull : bool;
 var wood =0
 var copper =0
 var rock =0
-
+var life =3
 
 
 const SPEED = 5.0
@@ -25,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if Input.is_action_just_pressed("schlagen"):
-		treffer()
+		treffer(delta)
 		
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -56,13 +57,15 @@ func _input(event):
 		rotation.y -= event.relative.x / camerapov
 		rotation.x -= event.relative.y / camerapov
 		
-func treffer():
+func treffer(delta):
 	if $RayCast3D.is_colliding():
 		objekttreffer = $RayCast3D.get_collider()
 		if objekttreffer.is_in_group("resourcengruppe"):
-			objekttreffer.baumernten(self)
-		
-	pass
+			if invfull:
+				life -= 1
+				$inventar.lifeinvisable(life)
+			else:
+				objekttreffer.baumernten(self)
 
 
 func inventar():
@@ -70,4 +73,9 @@ func inventar():
 		$inventar.visible = !$inventar.visible
 		
 func gather(object):
-	$inventar.manage(object);
+	var alreadyullslot = wood+copper+rock
+	print(alreadyullslot)
+	if alreadyullslot == 21:
+		invfull = true
+	else:
+		$inventar.manage(object);

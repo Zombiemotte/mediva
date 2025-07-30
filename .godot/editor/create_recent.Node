@@ -1,5 +1,5 @@
-Control
 TextureRect
+Control
 CollisionShape3D
 StaticBody3D
 GridMap
