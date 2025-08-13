@@ -1,3 +1,7 @@
+MultiplayerSynchronizer
+Node3D
+MultiplayerSpawner
+WorldEnvironment
 TextureRect
 Control
 CollisionShape3D

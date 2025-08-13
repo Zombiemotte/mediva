@@ -1,9 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfx5p0chlaj5n"]
+[gd_scene load_steps=14 format=3 uid="uid://cfx5p0chlaj5n"]
 
 [ext_resource type="Script" uid="uid://cmto51gmho7y1" path="res://map/testmap.gd" id="1_54aw6"]
 [ext_resource type="PackedScene" uid="uid://rtvpi0k6h5cf" path="res://map/copperstatik.tscn" id="2_8t7lf"]
 [ext_resource type="Texture2D" uid="uid://b8bg4x507driw" path="res://bodentexture.png" id="2_54aw6"]
 [ext_resource type="PackedScene" uid="uid://bwjximmtty7d1" path="res://map/stone.tscn" id="3_hrjrc"]
+
+[sub_resource type="Gradient" id="Gradient_54aw6"]
+offsets = PackedFloat32Array(0, 0.059322, 0.711864)
+colors = PackedColorArray(0.153453, 0.873861, 0.984375, 1, 0.368677, 0.90593, 0.988347, 1, 0.88, 0.97, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_14t4g"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_go5xc"]
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_54aw6")
+noise = SubResource("FastNoiseLite_14t4g")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_iye13"]
+panorama = SubResource("NoiseTexture2D_go5xc")
+
+[sub_resource type="Sky" id="Sky_mh32o"]
+sky_material = SubResource("PanoramaSkyMaterial_iye13")
+
+[sub_resource type="Environment" id="Environment_5dawk"]
+background_mode = 2
+sky = SubResource("Sky_mh32o")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8t7lf"]
 albedo_color = Color(0.450648, 0.450648, 0.450648, 1)
@@ -12,12 +35,20 @@ albedo_color = Color(0.450648, 0.450648, 0.450648, 1)
 albedo_color = Color(0.27451, 0.647059, 0, 1)
 albedo_texture = ExtResource("2_54aw6")
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_54aw6"]
+properties/0/path = NodePath(".:host_init")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="testmap" type="Node3D"]
 script = ExtResource("1_54aw6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.560639, 0.82806, 0, -0.82806, -0.560639, -0.24462, 19.8565, -8.08107)
 light_color = Color(0.998197, 1, 0.793596, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5dawk")
 
 [node name="felsen" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.86833, -2.51478, 10.1147)
@@ -47,3 +78,10 @@ transform = Transform3D(-0.788032, 0.138076, -0.599951, -0.613778, -0.251827, 0.
 
 [node name="STONE2" parent="." instance=ExtResource("3_hrjrc")]
 transform = Transform3D(-0.0173153, 0.990567, 0.135935, 0.979679, -0.0103627, 0.200305, 0.199824, 0.136641, -0.970258, -26.2299, 0, 31.955)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://te07qmxeokro", "uid://rtvpi0k6h5cf", "uid://bwjximmtty7d1", "uid://df2l8ykusbgi2", "uid://h4lur2rbk2rr")
+spawn_path = NodePath("..")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_54aw6")

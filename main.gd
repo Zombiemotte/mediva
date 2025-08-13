@@ -27,3 +27,11 @@ func add_player(peer_id):
 	newplayer.global_position =Vector3(0,50,0)
 	
 	
+func killdeadbody(player):
+	remove_player.rpc(player.get_multiplayer_authority)
+	player.queue_free()
+	
+	
+@rpc("any_peer", "call_local")
+func remove_player(id):
+		get_node(id).queue_free()

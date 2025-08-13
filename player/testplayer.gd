@@ -7,6 +7,7 @@ var copper =0
 var rock =0
 var life =3
 
+signal deadplayer
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -19,9 +20,18 @@ func _ready() -> void:
 	if not is_multiplayer_authority(): return
 	print(get_multiplayer_authority())
 	$camfollow/Camera3D.current =true
+	$inventar.visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	connect('deadplayer', get_parent().killdeadbody)
+	
+	
+func _exit_tree() -> void:
+	Input.mouse_mode =Input.MOUSE_MODE_VISIBLE
 	
 func _physics_process(delta: float) -> void:
 	if not is_multiplayer_authority(): return
+	if life  <= 0:
+		death()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -75,7 +85,11 @@ func inventar():
 func gather(object):
 	var alreadyullslot = wood+copper+rock
 	print(alreadyullslot)
-	if alreadyullslot == 21:
-		invfull = true
-	else:
+	if not invfull:
 		$inventar.manage(object);
+	if alreadyullslot > 20:
+		invfull = true
+	
+
+func death():
+	deadplayer.emit(self);
