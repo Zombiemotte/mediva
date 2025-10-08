@@ -7,6 +7,7 @@ var copper =0
 var rock =0
 var life =3
 
+signal Iwillbuild
 signal deadplayer
 
 const SPEED = 5.0
@@ -14,16 +15,14 @@ const JUMP_VELOCITY = 4.5
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(str(name).to_int())
-	print(get_multiplayer_authority())
 
 func _ready() -> void:
 	if not is_multiplayer_authority(): return
-	print(get_multiplayer_authority())
 	$camfollow/Camera3D.current =true
 	$inventar.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	connect('deadplayer', get_parent().killdeadbody)
-	
+	connect('Iwillbuild', get_parent().get_node('testmap').spawn_object)
 	
 func _exit_tree() -> void:
 	Input.mouse_mode =Input.MOUSE_MODE_VISIBLE
@@ -37,7 +36,10 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	if Input.is_action_just_pressed("schlagen"):
 		treffer(delta)
-		
+	
+	if Input.is_action_just_pressed("interagieren"):
+		if wood > 0 :
+			builde()
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -79,6 +81,7 @@ func treffer(delta):
 
 
 func inventar():
+	if not is_multiplayer_authority(): return
 	if Input.is_action_just_pressed("inventaranaus"):
 		$inventar.visible = !$inventar.visible
 		
@@ -90,6 +93,11 @@ func gather(object):
 	if alreadyullslot > 20:
 		invfull = true
 	
-
+func builde():
+	wood -= 1
+	$inventar.slotchoser("wood")
+	emit_signal("Iwillbuild")
+	
+	
 func death():
 	deadplayer.emit(self);

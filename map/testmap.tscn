@@ -1,9 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfx5p0chlaj5n"]
+[gd_scene load_steps=17 format=3 uid="uid://cfx5p0chlaj5n"]
 
 [ext_resource type="Script" uid="uid://cmto51gmho7y1" path="res://map/testmap.gd" id="1_54aw6"]
 [ext_resource type="PackedScene" uid="uid://rtvpi0k6h5cf" path="res://map/copperstatik.tscn" id="2_8t7lf"]
+[ext_resource type="PackedScene" uid="uid://df2l8ykusbgi2" path="res://map/unno.tscn" id="2_14t4g"]
 [ext_resource type="Texture2D" uid="uid://b8bg4x507driw" path="res://bodentexture.png" id="2_54aw6"]
 [ext_resource type="PackedScene" uid="uid://bwjximmtty7d1" path="res://map/stone.tscn" id="3_hrjrc"]
+[ext_resource type="PackedScene" uid="uid://dbk6pynlfjknj" path="res://map/bulidewood.tscn" id="5_iye13"]
+[ext_resource type="PackedScene" uid="uid://32uqu371ag0g" path="res://map/grasstiteslscree.tscn" id="6_mh32o"]
 
 [sub_resource type="Gradient" id="Gradient_54aw6"]
 offsets = PackedFloat32Array(0, 0.059322, 0.711864)
@@ -42,6 +45,7 @@ properties/0/replication_mode = 1
 
 [node name="testmap" type="Node3D"]
 script = ExtResource("1_54aw6")
+preloadassets = Array[PackedScene]([ExtResource("2_14t4g"), ExtResource("2_8t7lf"), ExtResource("3_hrjrc"), ExtResource("5_iye13"), ExtResource("6_mh32o")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.560639, 0.82806, 0, -0.82806, -0.560639, -0.24462, 19.8565, -8.08107)

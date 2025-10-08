@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbk6pynlfjknj"]
+
+[ext_resource type="PackedScene" uid="uid://f0xupu0j8lwt" path="res://wood.blend" id="1_si00e"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_si00e"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:scale")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kp50s"]
+height = 3.92529
+
+[node name="bulidewood" type="RigidBody3D"]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_si00e")
+
+[node name="wood" parent="." instance=ExtResource("1_si00e")]
+transform = Transform3D(0.427, 0, 0, 0, 0.436, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.05243, 0, 0, 0, -4.60032e-08, -1.05243, 0, 1.05243, -4.60032e-08, 0, 5.50331e-10, -0.0125901)
+shape = SubResource("CylinderShape3D_kp50s")

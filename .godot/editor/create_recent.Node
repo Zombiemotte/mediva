@@ -1,9 +1,10 @@
 MultiplayerSynchronizer
+CollisionShape3D
+RigidBody3D
 Node3D
 MultiplayerSpawner
+StaticBody3D
 WorldEnvironment
 TextureRect
 Control
-CollisionShape3D
-StaticBody3D
 GridMap

@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.4.56",
+		"generator":"Khronos glTF Blender I/O v4.5.47",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -247,7 +247,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Plane",
+			"name":"Mesh",
 			"primitives":[
 				{
 					"attributes":{
@@ -262,7 +262,7 @@
 			]
 		},
 		{
-			"name":"Plane.001",
+			"name":"Mesh",
 			"primitives":[
 				{
 					"attributes":{
@@ -277,7 +277,7 @@
 			]
 		},
 		{
-			"name":"Plane.002",
+			"name":"Mesh",
 			"primitives":[
 				{
 					"attributes":{
@@ -292,7 +292,7 @@
 			]
 		},
 		{
-			"name":"Cylinder",
+			"name":"Mesh",
 			"primitives":[
 				{
 					"attributes":{

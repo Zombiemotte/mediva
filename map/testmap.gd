@@ -4,21 +4,34 @@ var stone = load("res://map/stone.tscn")
 var baum = load("res://map/baum.tscn")
 var copper = load("res://map/copperstatik.tscn") 
 var baum_2d = load("res://map/baum/baum_2d.tscn")
-var randrom_world_gen = [unno,stone,baum,copper,baum_2d]
+var grasstitescree = load( "res://map/grasstiteslscree.tscn")
+#var randrom_world_gen = [unno,stone,baum,copper,baum_2d,grasstitescree]
 @export var host_init : bool;
+@export var preloadassets : Array[PackedScene];
+var loadassets: Array[Resource];
 
 
-func _ready() -> void:
-	init_map()
-	
+
 	
 func init_map():
 	if not multiplayer.is_server():
 		return
-	for n in 100:
-		var length = randrom_world_gen.size() -1
-		var new_object = randrom_world_gen[randi_range(0,length)]
-		var position = Vector3(randi_range(-62,62),0.3,randi_range(-62,62)) 
+	for asset in preloadassets:
+		loadassets.append(asset.instantiate())
+	for n in 1000 :
+		var length = preloadassets.size() -1
+		var new_object = preloadassets[randi_range(0,length)]
+		var position = Vector3(randi_range(-62,62),0.3,randi_range(-62,62))
+		var rota = Vector3(0,randi_range(0,359),0)
 		var newplayer = new_object.instantiate()
 		add_child(newplayer,true)
 		newplayer.global_position =position
+		newplayer.global_rotation = rota
+	print('map generated')
+
+
+func _on_main_seedsync() -> void:
+	init_map()
+	
+func spawn_object():
+	print('ihabholz')
