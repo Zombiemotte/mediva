@@ -8,7 +8,7 @@
 script = ExtResource("1_h2yge")
 
 [node name="testmap" parent="." instance=ExtResource("1_obg0t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.7962, 1.8978, 21.191)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.253281, 0)
 
 [node name="startmenu" parent="." instance=ExtResource("2_0xm2m")]
 
@@ -16,5 +16,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.7962, 1.8978, 21.191)
 _spawnable_scenes = PackedStringArray("uid://g8d20vsv1ymg")
 spawn_path = NodePath("..")
 
+[node name="Spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.08852, 0)
+
+[connection signal="seedsync" from="." to="testmap" method="_on_main_seedsync"]
 [connection signal="hostignal" from="startmenu" to="." method="_on_startmenu_hostignal"]
 [connection signal="joinignal" from="startmenu" to="." method="_on_startmenu_joinignal"]

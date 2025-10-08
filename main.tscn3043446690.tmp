@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct4lokihur2c7"]
+
+[ext_resource type="Script" uid="uid://o5u5a12qd83i" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cfx5p0chlaj5n" path="res://map/testmap.tscn" id="1_obg0t"]
+[ext_resource type="PackedScene" uid="uid://c2417w36hmeiw" path="res://menus/startmenu.tscn" id="2_0xm2m"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_h2yge")
+
+[node name="testmap" parent="." instance=ExtResource("1_obg0t")]
+
+[node name="startmenu" parent="." instance=ExtResource("2_0xm2m")]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://g8d20vsv1ymg")
+spawn_path = NodePath("..")
+
+[connection signal="hostignal" from="startmenu" to="." method="_on_startmenu_hostignal"]
+[connection signal="joinignal" from="startmenu" to="." method="_on_startmenu_joinignal"]

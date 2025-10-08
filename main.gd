@@ -2,8 +2,7 @@ extends Node
 
 const PORT = 9999
 const Player = preload("res://player/testplayer.tscn")
-
-
+signal seedsync
 
 var peer = ENetMultiplayerPeer.new()
 
@@ -14,6 +13,7 @@ func _on_startmenu_hostignal() -> void:
 	multiplayer.peer_connected.connect(add_player)
 	$startmenu.queue_free()
 	add_player(multiplayer.get_unique_id())
+	emit_signal("seedsync")
 
 func _on_startmenu_joinignal() -> void:
 	peer.create_client($startmenu/TextEdit.text,PORT)
@@ -27,3 +27,13 @@ func add_player(peer_id):
 	newplayer.global_position =Vector3(0,50,0)
 	
 	
+func killdeadbody(player):
+	remove_player.rpc(player)
+	player.queue_free()
+	
+	
+@rpc("any_peer", "call_local")
+func remove_player(id):
+		print(id)
+		if id is Node:
+			id.queue_free()

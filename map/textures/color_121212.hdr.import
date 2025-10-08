@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dy0288xphmt87"
-path="res://.godot/imported/color_121212.hdr-bf0348bb4676d330e2c6ecfeb65292ee.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://map/textures/color_121212.hdr"
-dest_files=["res://.godot/imported/color_121212.hdr-bf0348bb4676d330e2c6ecfeb65292ee.ctex"]
 
 [params]
 

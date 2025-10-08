@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfx5p0chlaj5n"]
+
+[ext_resource type="Script" uid="uid://cmto51gmho7y1" path="res://map/testmap.gd" id="1_54aw6"]
+[ext_resource type="PackedScene" uid="uid://rtvpi0k6h5cf" path="res://map/copperstatik.tscn" id="2_8t7lf"]
+[ext_resource type="Texture2D" uid="uid://b8bg4x507driw" path="res://bodentexture.png" id="2_54aw6"]
+[ext_resource type="PackedScene" uid="uid://bwjximmtty7d1" path="res://map/stone.tscn" id="3_hrjrc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8t7lf"]
+albedo_color = Color(0.450648, 0.450648, 0.450648, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etq80"]
+albedo_color = Color(0.27451, 0.647059, 0, 1)
+albedo_texture = ExtResource("2_54aw6")
+
+[node name="testmap" type="Node3D"]
+script = ExtResource("1_54aw6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.560639, 0.82806, 0, -0.82806, -0.560639, -0.24462, 19.8565, -8.08107)
+light_color = Color(0.998197, 1, 0.793596, 1)
+
+[node name="felsen" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.86833, -2.51478, 10.1147)
+use_collision = true
+collision_mask = 0
+radius = 6.266
+height = 8.72939
+material = SubResource("StandardMaterial3D_8t7lf")
+
+[node name="stuffe" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93638, 0, 11.765)
+use_collision = true
+collision_mask = 0
+size = Vector3(3.5282, 2.25898, 4.25333)
+
+[node name="boden" type="CSGBox3D" parent="."]
+use_collision = true
+collision_mask = 0
+size = Vector3(124, 0.001, 124)
+material = SubResource("StandardMaterial3D_etq80")
+
+[node name="copperstatik" parent="." instance=ExtResource("2_8t7lf")]
+transform = Transform3D(1, 0, 0, 0, 0.833857, -0.551981, 0, 0.551981, 0.833857, 21.3199, 0, 0)
+
+[node name="STONE" parent="." instance=ExtResource("3_hrjrc")]
+transform = Transform3D(-0.788032, 0.138076, -0.599951, -0.613778, -0.251827, 0.748237, -0.0477704, 0.957872, 0.283196, 27.4425, 0, 11.476)
+
+[node name="STONE2" parent="." instance=ExtResource("3_hrjrc")]
+transform = Transform3D(-0.0173153, 0.990567, 0.135935, 0.979679, -0.0103627, 0.200305, 0.199824, 0.136641, -0.970258, -26.2299, 0, 31.955)

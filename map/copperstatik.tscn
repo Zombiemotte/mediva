@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://rtvpi0k6h5cf"]
+[gd_scene load_steps=5 format=3 uid="uid://rtvpi0k6h5cf"]
 
 [ext_resource type="Script" uid="uid://bfoatnjj4s6kk" path="res://map/copperstatik.gd" id="1_0dhv6"]
 [ext_resource type="PackedScene" uid="uid://d102t0r56dabx" path="res://coperedstone.blend" id="1_j483k"]
@@ -6,6 +6,17 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j483k"]
 radius = 1.19945
 height = 3.71495
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_0dhv6"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:treecount")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [node name="copperstatik" type="StaticBody3D" groups=["resourcengruppe"]]
 collision_mask = 0
@@ -16,3 +27,6 @@ script = ExtResource("1_0dhv6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-0.42796, -0.803691, -0.413438, 0.882661, -0.470011, -6.4776e-10, -0.19432, -0.364926, 0.910532, 0.277336, 0.202551, 0)
 shape = SubResource("CapsuleShape3D_j483k")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_0dhv6")

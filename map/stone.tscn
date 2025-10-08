@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwjximmtty7d1"]
+[gd_scene load_steps=5 format=3 uid="uid://bwjximmtty7d1"]
 
 [ext_resource type="Script" uid="uid://c0vhx51cdr023" path="res://map/stone.gd" id="1_xedn5"]
 [ext_resource type="PackedScene" uid="uid://ccuo6du6xaa1o" path="res://stonemt.blend" id="2_2pjpm"]
@@ -6,6 +6,17 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xedn5"]
 radius = 0.916197
 height = 2.71077
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xedn5"]
+properties/0/path = NodePath(".:treecount")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [node name="STONE" type="StaticBody3D" groups=["resourcengruppe"]]
 collision_mask = 0
@@ -17,3 +28,6 @@ transform = Transform3D(0.103851, -0.994593, 0, -0.857516, -0.0895384, -0.506606
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.403976, 0.914769, 0, -0.914769, 0.403976, 0.2998, 0, 1.24172)
 shape = SubResource("CapsuleShape3D_xedn5")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_xedn5")
