@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfx5p0chlaj5n"]
+[gd_scene load_steps=18 format=3 uid="uid://cfx5p0chlaj5n"]
 
 [ext_resource type="Script" uid="uid://cmto51gmho7y1" path="res://map/testmap.gd" id="1_54aw6"]
 [ext_resource type="PackedScene" uid="uid://rtvpi0k6h5cf" path="res://map/copperstatik.tscn" id="2_8t7lf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bwjximmtty7d1" path="res://map/stone.tscn" id="3_hrjrc"]
 [ext_resource type="PackedScene" uid="uid://dbk6pynlfjknj" path="res://map/bulidewood.tscn" id="5_iye13"]
 [ext_resource type="PackedScene" uid="uid://32uqu371ag0g" path="res://map/grasstiteslscree.tscn" id="6_mh32o"]
+[ext_resource type="PackedScene" uid="uid://te07qmxeokro" path="res://map/baum/baum_2d.tscn" id="7_mh32o"]
 
 [sub_resource type="Gradient" id="Gradient_54aw6"]
 offsets = PackedFloat32Array(0, 0.059322, 0.711864)
@@ -15,11 +16,11 @@ colors = PackedColorArray(0.153453, 0.873861, 0.984375, 1, 0.368677, 0.90593, 0.
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_14t4g"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_go5xc"]
-in_3d_space = true
-seamless = true
-seamless_blend_skirt = 1.0
-color_ramp = SubResource("Gradient_54aw6")
 noise = SubResource("FastNoiseLite_14t4g")
+color_ramp = SubResource("Gradient_54aw6")
+seamless = true
+in_3d_space = true
+seamless_blend_skirt = 1.0
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_iye13"]
 panorama = SubResource("NoiseTexture2D_go5xc")
@@ -45,7 +46,8 @@ properties/0/replication_mode = 1
 
 [node name="testmap" type="Node3D"]
 script = ExtResource("1_54aw6")
-preloadassets = Array[PackedScene]([ExtResource("2_14t4g"), ExtResource("2_8t7lf"), ExtResource("3_hrjrc"), ExtResource("5_iye13"), ExtResource("6_mh32o")])
+preloadassets = Array[PackedScene]([ExtResource("2_14t4g"), ExtResource("2_8t7lf"), ExtResource("3_hrjrc"), ExtResource("5_iye13"), ExtResource("6_mh32o"), ExtResource("7_mh32o")])
+buildwood = ExtResource("5_iye13")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.560639, 0.82806, 0, -0.82806, -0.560639, -0.24462, 19.8565, -8.08107)
@@ -84,7 +86,7 @@ transform = Transform3D(-0.788032, 0.138076, -0.599951, -0.613778, -0.251827, 0.
 transform = Transform3D(-0.0173153, 0.990567, 0.135935, 0.979679, -0.0103627, 0.200305, 0.199824, 0.136641, -0.970258, -26.2299, 0, 31.955)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("uid://te07qmxeokro", "uid://rtvpi0k6h5cf", "uid://bwjximmtty7d1", "uid://df2l8ykusbgi2", "uid://h4lur2rbk2rr")
+_spawnable_scenes = PackedStringArray("uid://te07qmxeokro", "uid://rtvpi0k6h5cf", "uid://bwjximmtty7d1", "uid://df2l8ykusbgi2", "uid://h4lur2rbk2rr", "uid://dbk6pynlfjknj")
 spawn_path = NodePath("..")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

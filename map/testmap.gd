@@ -8,6 +8,9 @@ var grasstitescree = load( "res://map/grasstiteslscree.tscn")
 #var randrom_world_gen = [unno,stone,baum,copper,baum_2d,grasstitescree]
 @export var host_init : bool;
 @export var preloadassets : Array[PackedScene];
+@export var bauassets : Dictionary[String,PackedScene];
+@export var buildwood: PackedScene;
+
 var loadassets: Array[Resource];
 
 
@@ -34,4 +37,13 @@ func _on_main_seedsync() -> void:
 	init_map()
 	
 func spawn_object():
+	spawn_wood.rpc()
+
+@rpc("any_peer", "call_local")
+func spawn_wood():
+	if not multiplayer.is_server():
+		return
 	print('ihabholz')
+	var newplayer = buildwood.instantiate()
+	add_child(newplayer,true)
+	newplayer.global_position = Vector3(0,0.3,0)

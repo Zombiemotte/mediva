@@ -17,13 +17,15 @@ properties/2/replication_mode = 1
 height = 3.92529
 
 [node name="bulidewood" type="RigidBody3D"]
+collision_mask = 3
+mass = 0.439
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_si00e")
 
 [node name="wood" parent="." instance=ExtResource("1_si00e")]
-transform = Transform3D(0.427, 0, 0, 0, 0.436, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.204, 0, 0, 0, 0.234, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.05243, 0, 0, 0, -4.60032e-08, -1.05243, 0, 1.05243, -4.60032e-08, 0, 5.50331e-10, -0.0125901)
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 5.50331e-10, -0.0125901)
 shape = SubResource("CylinderShape3D_kp50s")

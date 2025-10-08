@@ -1,15 +1,3 @@
-res://main.tscn
-res://map/stone.tscn
-res://map/baum.tscn
 res://map/testmap.tscn
-res://map/unno.tscn
-res://map/copperstatik.tscn
-res://player/testplayer.tscn
-res://map/baum/baum_2d.tscn
-res://player/inventar.tscn
-res://map/grasstiteslscree.tscn
-res://menus/startmenu.tscn
 res://map/bulidewood.tscn
-res://player/inventar.gd
-res://player/testplayer.gd
 res://map/testmap.gd
