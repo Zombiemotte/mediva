@@ -1,3 +1,7 @@
-res://map/testmap.tscn
 res://map/bulidewood.tscn
+res://main.gd
+res://menus/startmenu.tscn
+res://main.tscn
+res://player/testplayer.tscn
+res://player/testplayer.gd
 res://map/testmap.gd

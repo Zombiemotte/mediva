@@ -7,7 +7,7 @@ var copper =0
 var rock =0
 var life =3
 
-signal Iwillbuild
+signal Iwillbuild(spawn_posi)
 signal deadplayer
 
 const SPEED = 5.0
@@ -96,8 +96,7 @@ func gather(object):
 func builde():
 	wood -= 1
 	$inventar.slotchoser("wood")
-	emit_signal("Iwillbuild")
-	
+	Iwillbuild.emit($RayCast3D.to_global($RayCast3D.target_position))
 	
 func death():
 	deadplayer.emit(self);
