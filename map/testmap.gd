@@ -36,14 +36,15 @@ func init_map():
 func _on_main_seedsync() -> void:
 	init_map()
 	
-func spawn_object():
-	spawn_wood.rpc()
+func spawn_object(spawn_posi : Vector3):
+	spawn_wood.rpc(spawn_posi)
 
 @rpc("any_peer", "call_local")
-func spawn_wood():
+func spawn_wood(spawn_posi : Vector3):
 	if not multiplayer.is_server():
 		return
 	print('ihabholz')
 	var newplayer = buildwood.instantiate()
 	add_child(newplayer,true)
-	newplayer.global_position = Vector3(0,0.3,0)
+	newplayer.rotation = Vector3(80,0,0)
+	newplayer.global_position = Vector3(spawn_posi.x,0.3,spawn_posi.z)

@@ -6,6 +6,11 @@ signal seedsync
 
 var peer = ENetMultiplayerPeer.new()
 
+func _ready() -> void:
+	if OS.has_feature('windows'):
+		if OS.has_environment('COMPUTERNAME'):
+			$startmenu/TextEdit.text = IP.resolve_hostname(str(OS.get_environment('COMPUTERNAME')),1)
+			
 
 func _on_startmenu_hostignal() -> void:
 	peer.create_server(PORT)
@@ -24,7 +29,7 @@ func add_player(peer_id):
 	var newplayer = Player.instantiate()
 	newplayer.name = str(peer_id)
 	add_child(newplayer)
-	newplayer.global_position =Vector3(0,50,0)
+	newplayer.global_position = Vector3(0,50,0)
 	
 	
 func killdeadbody(player):
