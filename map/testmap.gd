@@ -19,8 +19,8 @@ var loadassets: Array[Resource];
 func init_map():
 	if not multiplayer.is_server():
 		return
-	for asset in preloadassets:
-		loadassets.append(asset.instantiate())
+	#for asset in preloadassets:
+		#loadassets.append(asset.instantiate())
 	for n in 1000 :
 		var length = preloadassets.size() -1
 		var new_object = preloadassets[randi_range(0,length)]

@@ -87,7 +87,6 @@ func inventar():
 		
 func gather(object):
 	var alreadyullslot = wood+copper+rock
-	print(alreadyullslot)
 	if not invfull:
 		$inventar.manage(object);
 	if alreadyullslot > 20:

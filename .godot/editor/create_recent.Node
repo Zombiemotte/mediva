@@ -1,6 +1,8 @@
-MultiplayerSynchronizer
+CharacterBody3D
 CollisionShape3D
+Area3D
 RigidBody3D
+MultiplayerSynchronizer
 Node3D
 MultiplayerSpawner
 StaticBody3D

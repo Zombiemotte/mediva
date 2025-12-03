@@ -177,7 +177,6 @@ offset_right = 1104.0
 offset_bottom = 518.0
 
 [node name="Death" type="Control" parent="."]
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
