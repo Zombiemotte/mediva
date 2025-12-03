@@ -3,13 +3,14 @@ extends StaticBody3D
 var wood = load("res://player/inventarholz.png")
 
 func baumernten(player):
+	print(treecount)
 	treeotter.rpc()
 	player.wood += 1
 	player.gather({"name" : "wood", "texture" : wood});
-	treecount -= 1
+	onupdatecounter.rpc()
+	print(treecount)
 	if treecount == 0:
 		treeausotter.rpc()
-		queue_free()
 
 @rpc("any_peer", "call_local")
 func treeotter():
@@ -19,3 +20,7 @@ func treeotter():
 @rpc("any_peer", "call_local")
 func treeausotter():
 		queue_free()
+
+@rpc("any_peer", "call_local")
+func onupdatecounter():
+	treecount -= 1
