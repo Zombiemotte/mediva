@@ -10,8 +10,7 @@ height = 9.187012
 [sub_resource type="BoxShape3D" id="BoxShape3D_hawwc"]
 size = Vector3(2.5906982, 0.71484375, 2.3736877)
 
-[node name="frenemyturtle" type="RigidBody3D"]
-collision_layer = 4
+[node name="frenemyturtle" type="CharacterBody3D"]
 script = ExtResource("1_q144r")
 
 [node name="13103PearlturtleV1L2" type="MeshInstance3D" parent="."]
@@ -30,5 +29,3 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3571167, 0.3208109, 0.2635274)
 shape = SubResource("BoxShape3D_hawwc")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
