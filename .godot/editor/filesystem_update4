@@ -1,11 +1,4 @@
-res://map/baum/baum_2d.tscn
-res://map/baum.gd
-res://map/grasstiteslscree.tscn
+res://enemy/frenemyturtle.gd
+res://enemy/frenemyturtle.tscn
 res://map/testmap.tscn
 res://map/testmap.gd
-res://player/inventar.tscn
-res://player/testplayer.gd
-res://map/copperstatik.gd
-res://map/stone.gd
-res://enemy/frenemyturtle.tscn
-res://enemy/frenemyturtle.gd

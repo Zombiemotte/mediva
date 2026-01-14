@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1764777980
+::res://::1768403837
 apple.blend::PackedScene/PackedScene::8371757769892882361::1748594324::1752673996::1::::<><><>0<>0<>2255d6d8baa789f1e6831b80d169bb31<>res://.godot/imported/apple.blend-b2b98f1bc31eb1c1d0fcdeb731661146.scn::
 bodentexture.png::CompressedTexture2D/CompressedTexture2D::4705134247042042274::1752675449::1752675495::1::::<><><>0<>0<>d75d67f1df6e3432bb1ccb07988394e7<>res://.godot/imported/bodentexture.png-a90488d999c409fc5d224aef11b6c4aa.s3tc.ctex::
 bow.blend::PackedScene/PackedScene::7430100462075132314::1750269056::1752676990::1::::<><><>0<>0<>1fd602ec3df668d1c6619c9f26fc3fe0<>res://.godot/imported/bow.blend-9824d5d25f10c2c160873f9f51a4f92d.scn::
@@ -29,10 +29,12 @@ tree5.blend::PackedScene/PackedScene::4816504102183176156::1753279485::175327951
 tree5.glb::PackedScene/PackedScene::2045316618198562098::1753279732::1753279734::1::::<><><>0<>0<>8facf49c927f9d390f176b45f05effab<>res://.godot/imported/tree5.glb-8b0857b98c0528f493fa62a1a8563e44.scn::
 Untitled.blend::PackedScene/PackedScene::7003491609249922488::1749048827::1749049384::1::::<><><>0<>0<>f93420b6c498ea526fae754f1d8a50c5<>res://.godot/imported/Untitled.blend-25d3358efb3d35d44789a3a47759732a.scn::
 wood.blend::PackedScene/PackedScene::403986688648946531::1748621750::1752673997::1::::<><><>0<>0<>7be0ef3a14b65e6051f9e33732e8dfab<>res://.godot/imported/wood.blend-3ad04223af9298bc254ab668694b8b96.scn::
-::res://enemy/::1764777985
+::res://enemy/::1764779951
 13103_pearlturtle_diffuse.jpg::CompressedTexture2D::6845045753386156584::1325944962::1764777993::1::::<><><>0<>0<>e49cd71a26e4d778d9876f3b33239f89<>res://.godot/imported/13103_pearlturtle_diffuse.jpg-ece1a7cc4bfa2880a929b7303b36aa4e.s3tc.ctex::
 13103_pearlturtle_v1_l2.obj::Mesh::3831086595817535608::1326711214::1764777992::1::::<><><>0<>0<>561dca611a3f848c3b4d8dd06bebbcd5<>res://.godot/imported/13103_pearlturtle_v1_l2.obj-624d13ab23a0a8cba350aca6a77cff53.mesh<*>res://.godot/imported/13103_pearlturtle_v1_l2.obj-624d13ab23a0a8cba350aca6a77cff53.mesh::uid://c4r15yos7q0wy::::res://enemy/13103_pearlturtle_diffuse.jpg
-::res://map/::1764776889
+frenemyturtle.gd::GDScript::7986302377349989306::1764779951::0::1::::<>RigidBody3D<><>0<>0<><>::
+frenemyturtle.tscn::PackedScene::2531478980322305957::1764779724::0::1::::<><><>0<>0<><>::uid://but2o3umqucy7::::res://enemy/13103_pearlturtle_v1_l2.obj<>uid://dl1vh60i0mpck::::res://enemy/frenemyturtle.gd
+::res://map/::1764779950
 baum.gd::GDScript::4047173551465357919::1764776889::0::1::::<>StaticBody3D<><>0<>0<><>::
 baum.tscn::PackedScene::551893398513324287::1757517947::0::1::::<><><>0<>0<><>::uid://c61sqpaxixwrg::::res://Untitled.blend<>uid://bxwqme2gp8akt::::res://map/baum.gd
 bulidewood.tscn::PackedScene::7252004967091965091::1761142478::0::1::::<><><>0<>0<><>::uid://f0xupu0j8lwt::::res://wood.blend
@@ -42,7 +44,7 @@ grasstiteslscree.tscn::PackedScene::2022269828992540944::1764775452::0::1::::<><
 stone.gd::GDScript::6571382099342441870::1764776889::0::1::::<>StaticBody3D<><>0<>0<><>::
 stone.tscn::PackedScene::3950566070408717904::1757517947::0::1::::<><><>0<>0<><>::uid://c0vhx51cdr023::::res://map/stone.gd<>uid://ccuo6du6xaa1o::::res://stonemt.blend
 testmap.gd::GDScript::5655235655516701610::1764775883::0::1::::<>Node3D<><>0<>0<><>::
-testmap.tscn::PackedScene::5173115887117427773::1764776625::0::1::::<><><>0<>0<><>::uid://cmto51gmho7y1::::res://map/testmap.gd<>uid://rtvpi0k6h5cf::::res://map/copperstatik.tscn<>uid://df2l8ykusbgi2::::res://map/unno.tscn<>uid://b8bg4x507driw::::res://bodentexture.png<>uid://bwjximmtty7d1::::res://map/stone.tscn<>uid://dbk6pynlfjknj::::res://map/bulidewood.tscn<>uid://32uqu371ag0g::::res://map/grasstiteslscree.tscn<>uid://te07qmxeokro::::res://map/baum/baum_2d.tscn
+testmap.tscn::PackedScene::5173115887117427773::1764779950::0::1::::<><><>0<>0<><>::uid://cmto51gmho7y1::::res://map/testmap.gd<>uid://rtvpi0k6h5cf::::res://map/copperstatik.tscn<>uid://df2l8ykusbgi2::::res://map/unno.tscn<>uid://b8bg4x507driw::::res://bodentexture.png<>uid://bwjximmtty7d1::::res://map/stone.tscn<>uid://dbk6pynlfjknj::::res://map/bulidewood.tscn<>uid://32uqu371ag0g::::res://map/grasstiteslscree.tscn<>uid://te07qmxeokro::::res://map/baum/baum_2d.tscn<>uid://bccjda3ga7l62::::res://enemy/frenemyturtle.tscn
 unno.tscn::PackedScene::7566672563689628395::1757517947::0::1::::<><><>0<>0<><>::uid://cvqlwmcs67ij5::::res://plant_UNO.blend
 ::res://map/baum/::1764776534
 baum_2d.tscn::PackedScene::1343421470325150472::1764776534::0::1::::<><><>0<>0<><>::uid://bxwqme2gp8akt::::res://map/baum.gd<>uid://dds1y5glyfyvc::::res://map/baum/tree2mediva.blend
