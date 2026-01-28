@@ -1,9 +1,10 @@
+MultiplayerSynchronizer
+Node
 CharacterBody3D
 Node3D
 CollisionShape3D
 Area3D
 RigidBody3D
-MultiplayerSynchronizer
 MultiplayerSpawner
 StaticBody3D
 WorldEnvironment

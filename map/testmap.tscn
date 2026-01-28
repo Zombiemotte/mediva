@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cfx5p0chlaj5n"]
+[gd_scene format=3 uid="uid://cfx5p0chlaj5n"]
 
 [ext_resource type="Script" uid="uid://cmto51gmho7y1" path="res://map/testmap.gd" id="1_54aw6"]
 [ext_resource type="PackedScene" uid="uid://rtvpi0k6h5cf" path="res://map/copperstatik.tscn" id="2_8t7lf"]
@@ -33,9 +33,6 @@ sky_material = SubResource("PanoramaSkyMaterial_iye13")
 background_mode = 2
 sky = SubResource("Sky_mh32o")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8t7lf"]
-albedo_color = Color(0.450648, 0.450648, 0.450648, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etq80"]
 albedo_color = Color(0.27451, 0.647059, 0, 1)
 albedo_texture = ExtResource("2_54aw6")
@@ -45,63 +42,49 @@ properties/0/path = NodePath(".:host_init")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[node name="testmap" type="Node3D"]
+[node name="testmap" type="Node3D" unique_id=1367135801]
 script = ExtResource("1_54aw6")
 preloadassets = Array[PackedScene]([ExtResource("2_14t4g"), ExtResource("2_8t7lf"), ExtResource("3_hrjrc"), ExtResource("5_iye13"), ExtResource("7_mh32o"), ExtResource("6_mh32o")])
 buildwood = ExtResource("5_iye13")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1843650471]
 transform = Transform3D(1, 0, 0, 0, -0.560639, 0.82806, 0, -0.82806, -0.560639, -0.24462, 19.8565, -8.08107)
 light_color = Color(0.998197, 1, 0.793596, 1)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=484164730]
 environment = SubResource("Environment_5dawk")
 
-[node name="felsen" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.86833, 17.18886, 10.1147)
-use_collision = true
-collision_mask = 0
-radius = 6.266
-height = 8.72939
-material = SubResource("StandardMaterial3D_8t7lf")
-
-[node name="stuffe" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.342154, 21.034315, 11.932674)
-use_collision = true
-collision_mask = 0
-size = Vector3(30.085266, 2.7696266, 32.69883)
-
-[node name="boden" type="CSGBox3D" parent="."]
+[node name="boden" type="CSGBox3D" parent="." unique_id=376879686]
 transform = Transform3D(4.7965508, 0, 0, 0, 1, 0, 0, 0, 1.2686309, 0, 0, -19.12883)
 use_collision = true
 collision_mask = 0
 size = Vector3(124, 0.001, 572.07495)
 material = SubResource("StandardMaterial3D_etq80")
 
-[node name="copperstatik" parent="." instance=ExtResource("2_8t7lf")]
+[node name="copperstatik" parent="." unique_id=954027661 instance=ExtResource("2_8t7lf")]
 transform = Transform3D(1, 0, 0, 0, 0.833857, -0.551981, 0, 0.551981, 0.833857, 21.3199, 0, 0)
 
-[node name="STONE" parent="." instance=ExtResource("3_hrjrc")]
+[node name="STONE" parent="." unique_id=1467593944 instance=ExtResource("3_hrjrc")]
 transform = Transform3D(-0.788032, 0.138076, -0.599951, -0.613778, -0.251827, 0.748237, -0.0477704, 0.957872, 0.283196, 27.4425, 0, 11.476)
 
-[node name="STONE2" parent="." instance=ExtResource("3_hrjrc")]
-transform = Transform3D(-0.0173153, 0.990567, 0.135935, 0.979679, -0.0103627, 0.200305, 0.199824, 0.136641, -0.970258, -26.2299, 0, 31.955)
+[node name="STONE2" parent="." unique_id=627279958 instance=ExtResource("3_hrjrc")]
+transform = Transform3D(-0.017315328, 0.990567, 0.13593498, 0.979679, -0.010362685, 0.20030503, 0.19982398, 0.13664098, -0.970258, -26.229902, 0, 31.954998)
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1684864880]
 _spawnable_scenes = PackedStringArray("uid://te07qmxeokro", "uid://rtvpi0k6h5cf", "uid://bwjximmtty7d1", "uid://df2l8ykusbgi2", "uid://h4lur2rbk2rr", "uid://dbk6pynlfjknj", "uid://32uqu371ag0g")
 spawn_path = NodePath("..")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=350047559]
 replication_config = SubResource("SceneReplicationConfig_54aw6")
 
-[node name="frenemyturtle" parent="." instance=ExtResource("9_5dawk")]
+[node name="frenemyturtle" parent="." unique_id=1155747349 instance=ExtResource("9_5dawk")]
 transform = Transform3D(-0.09270076, 0, 0.99569404, 0, 1, 0, -0.99569404, 0, -0.09270076, -17.849094, 2.5096416, 3.3382378)
 
-[node name="frenemyturtle2" parent="." instance=ExtResource("9_5dawk")]
+[node name="frenemyturtle2" parent="." unique_id=252736313 instance=ExtResource("9_5dawk")]
 transform = Transform3D(-0.09270076, 0, 0.99569404, 0, 1, 0, -0.99569404, 0, -0.09270076, -17.849094, 2.5096416, 19.307346)
 
-[node name="frenemyturtle3" parent="." instance=ExtResource("9_5dawk")]
+[node name="frenemyturtle3" parent="." unique_id=836308653 instance=ExtResource("9_5dawk")]
 transform = Transform3D(-0.09270076, 0, 0.99569404, 0, 1, 0, -0.99569404, 0, -0.09270076, -17.849094, 2.5096416, 35.085823)
 
-[node name="frenemyturtle4" parent="." instance=ExtResource("9_5dawk")]
+[node name="frenemyturtle4" parent="." unique_id=312236616 instance=ExtResource("9_5dawk")]
 transform = Transform3D(-0.09270076, 0, 0.99569404, 0, 1, 0, -0.99569404, 0, -0.09270076, -17.849094, 2.5096416, 11.805168)
