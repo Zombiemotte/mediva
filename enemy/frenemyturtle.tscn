@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bccjda3ga7l62"]
+[gd_scene format=3 uid="uid://bccjda3ga7l62"]
 
 [ext_resource type="ArrayMesh" uid="uid://but2o3umqucy7" path="res://enemy/13103_pearlturtle_v1_l2.obj" id="1_osjus"]
 [ext_resource type="Script" uid="uid://dl1vh60i0mpck" path="res://enemy/frenemyturtle.gd" id="1_q144r"]
@@ -10,22 +10,36 @@ height = 9.187012
 [sub_resource type="BoxShape3D" id="BoxShape3D_hawwc"]
 size = Vector3(2.5906982, 0.71484375, 2.3736877)
 
-[node name="frenemyturtle" type="CharacterBody3D"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_q144r"]
+properties/0/path = NodePath(".:scale")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[node name="frenemyturtle" type="CharacterBody3D" unique_id=196320970]
 script = ExtResource("1_q144r")
 
-[node name="13103PearlturtleV1L2" type="MeshInstance3D" parent="."]
+[node name="13103PearlturtleV1L2" type="MeshInstance3D" parent="." unique_id=674435393]
 transform = Transform3D(0.43295848, 0, 0, 0, -2.081468e-08, 0.27965826, 0, -0.47618437, -1.2224251e-08, -1.436459, 1.1920929e-07, -3.0115333)
 mesh = ExtResource("1_osjus")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=806783232]
 transform = Transform3D(0.6571436, 0, 0, 0, -2.8724656e-08, -0.15637493, 0, 0.65714353, -6.8353656e-09, -1.9017978, 0.43261492, -3.976762)
 shape = SubResource("CapsuleShape3D_osjus")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1096886389]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1406547808]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3571167, 0.3208109, 0.2635274)
 shape = SubResource("BoxShape3D_hawwc")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1323007095]
+replication_config = SubResource("SceneReplicationConfig_q144r")
