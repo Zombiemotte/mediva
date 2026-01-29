@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://g8d20vsv1ymg"]
+[gd_scene format=3 uid="uid://g8d20vsv1ymg"]
 
 [ext_resource type="Script" uid="uid://rdfln4f2snbp" path="res://player/testplayer.gd" id="1_iqy31"]
 [ext_resource type="Script" uid="uid://bj4g3bd3ywdjo" path="res://player/camfollow.gd" id="2_5anvd"]
+[ext_resource type="PackedScene" uid="uid://dflfxutgvss8j" path="res://knightmediva.blend" id="2_ks6t2"]
 [ext_resource type="Texture2D" uid="uid://c0f6wog73nrh1" path="res://fadenkreuz.png" id="3_isjoe"]
+[ext_resource type="PackedScene" uid="uid://c7wm58oputcrm" path="res://knight2.blend" id="3_o5duh"]
 [ext_resource type="PackedScene" uid="uid://oim7sdhlisqf" path="res://player/inventar.tscn" id="4_l7dj6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qss0j"]
@@ -21,31 +23,39 @@ properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
-[node name="testplayer" type="CharacterBody3D"]
+[node name="testplayer" type="CharacterBody3D" unique_id=906161538]
 collision_layer = 2
 script = ExtResource("1_iqy31")
 
-[node name="testplayer" type="MeshInstance3D" parent="."]
+[node name="knightmediva" parent="." unique_id=1092049946 instance=ExtResource("2_ks6t2")]
+transform = Transform3D(0.43757105, 0, 0, 0, 0.46323186, 0, 0, 0, 0.58747303, 0, 0, 0)
+
+[node name="knight2" parent="." unique_id=297803293 instance=ExtResource("3_o5duh")]
+transform = Transform3D(0.403672, 0, 0, 0, 0.4264793, 0, 0, 0, 0.47612995, 0, 0.18981916, 0)
+visible = false
+
+[node name="testplayer" type="MeshInstance3D" parent="." unique_id=1777912119]
+visible = false
 mesh = SubResource("CapsuleMesh_45txj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=529183862]
 shape = SubResource("CapsuleShape3D_l43wm")
 
-[node name="camfollow" type="Node3D" parent="."]
+[node name="camfollow" type="Node3D" parent="." unique_id=1949124290]
 script = ExtResource("2_5anvd")
 
-[node name="Camera3D" type="Camera3D" parent="camfollow"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901, 0.209)
+[node name="Camera3D" type="Camera3D" parent="camfollow" unique_id=2133819841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901, -0.14450972)
 near = 0.032
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1700148358]
 replication_config = SubResource("SceneReplicationConfig_lgc2n")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=542891456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, 0, -1.5)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=279357331]
 offset_left = 512.0
 offset_top = 320.0
 offset_right = 576.0
@@ -53,7 +63,7 @@ offset_bottom = 386.0
 texture = ExtResource("3_isjoe")
 expand_mode = 1
 
-[node name="inventar" parent="." instance=ExtResource("4_l7dj6")]
+[node name="inventar" parent="." unique_id=2088494600 instance=ExtResource("4_l7dj6")]
 visible = false
 offset_left = 1.0
 offset_top = 7.0

@@ -21,7 +21,7 @@ func init_map():
 		return
 	#for asset in preloadassets:
 		#loadassets.append(asset.instantiate())
-	for n in 0 :
+	for n in 1000 :
 		var length = preloadassets.size() -1
 		var new_object = preloadassets[randi_range(0,length)]
 		var position = Vector3(randi_range(-62,62),0.3,randi_range(-62,62))

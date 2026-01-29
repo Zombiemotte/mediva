@@ -15,6 +15,9 @@ const JUMP_VELOCITY = 4.5
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(str(name).to_int())
+	if name != '1' :
+		$knightmediva.visible = false
+		$knight2.visible = true 
 
 func _ready() -> void:
 	if not is_multiplayer_authority(): return
