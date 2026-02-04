@@ -1,5 +1,7 @@
+res://enemy/skellet.tscn
+res://map/testmap.tscn
+res://enemy/frenemyturtle.tscn
+res://map/bulidewood.tscn
 res://player/testplayer.tscn
 res://player/testplayer.gd
-res://enemy/frenemyturtle.tscn
-res://map/testmap.gd
-res://map/testmap.tscn
+res://map/bulidewood.gd

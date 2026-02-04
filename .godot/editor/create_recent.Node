@@ -1,12 +1,13 @@
+StaticBody3D
+Node3D
+CSGCylinder3D
+CollisionShape3D
+CharacterBody3D
 MultiplayerSynchronizer
 Node
-CharacterBody3D
-Node3D
-CollisionShape3D
 Area3D
 RigidBody3D
 MultiplayerSpawner
-StaticBody3D
 WorldEnvironment
 TextureRect
 Control

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dv5jktvp5g2hy"]
+
+[ext_resource type="Script" uid="uid://dl1vh60i0mpck" path="res://enemy/frenemyturtle.gd" id="1_027i4"]
+[ext_resource type="PackedScene" uid="uid://c3lvj55h2dp23" path="res://skelletongudmediva.blend" id="1_u7v0a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v8agj"]
+
+[node name="skellet" type="CharacterBody3D" unique_id=651407057]
+collision_mask = 3
+script = ExtResource("1_027i4")
+
+[node name="skelletongudmediva" parent="." unique_id=740530281 instance=ExtResource("1_u7v0a")]
+transform = Transform3D(0.1944199, 0, 0, 0, 0.18761508, 0, 0, 0, 0.21590842, 0, 0.07974082, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1399446997]
+transform = Transform3D(1, 0, 0, 0, 0.98509157, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_v8agj")

@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dbk6pynlfjknj" path="res://map/bulidewood.tscn" id="5_iye13"]
 [ext_resource type="PackedScene" uid="uid://32uqu371ag0g" path="res://map/grasstiteslscree.tscn" id="6_mh32o"]
 [ext_resource type="PackedScene" uid="uid://te07qmxeokro" path="res://map/baum/baum_2d.tscn" id="7_mh32o"]
+[ext_resource type="PackedScene" uid="uid://cxp0s3ld0yv4v" path="res://map/baum/baumfichte.tscn" id="8_w6l1g"]
 [ext_resource type="PackedScene" uid="uid://bccjda3ga7l62" path="res://enemy/frenemyturtle.tscn" id="9_5dawk"]
+[ext_resource type="PackedScene" uid="uid://dv5jktvp5g2hy" path="res://enemy/skellet.tscn" id="10_3u6ds"]
 
 [sub_resource type="Gradient" id="Gradient_54aw6"]
 offsets = PackedFloat32Array(0, 0.059322, 0.711864)
@@ -44,7 +46,7 @@ properties/0/replication_mode = 1
 
 [node name="testmap" type="Node3D" unique_id=1367135801]
 script = ExtResource("1_54aw6")
-preloadassets = Array[PackedScene]([ExtResource("2_14t4g"), ExtResource("2_8t7lf"), ExtResource("3_hrjrc"), ExtResource("5_iye13"), ExtResource("7_mh32o"), ExtResource("6_mh32o")])
+preloadassets = Array[PackedScene]([ExtResource("2_14t4g"), ExtResource("2_8t7lf"), ExtResource("3_hrjrc"), ExtResource("5_iye13"), ExtResource("7_mh32o"), ExtResource("6_mh32o"), ExtResource("8_w6l1g")])
 buildwood = ExtResource("5_iye13")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1843650471]
@@ -88,3 +90,6 @@ transform = Transform3D(-0.09270076, 0, 0.99569404, 0, 1, 0, -0.99569404, 0, -0.
 
 [node name="frenemyturtle4" parent="." unique_id=312236616 instance=ExtResource("9_5dawk")]
 transform = Transform3D(-0.09270076, 0, 0.99569404, 0, 1, 0, -0.99569404, 0, -0.09270076, -17.849094, 2.5096416, 11.805168)
+
+[node name="skellet" parent="." unique_id=651407057 instance=ExtResource("10_3u6ds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.326376, 0)

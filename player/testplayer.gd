@@ -6,6 +6,8 @@ var wood =0
 var copper =0
 var rock =0
 var life =3
+var baumodus =0
+
 
 signal Iwillbuild(spawn_posi)
 signal deadplayer
@@ -46,6 +48,11 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
+	if Input.is_action_just_pressed("bauen"):
+		baumodus = !baumodus
+		start_baumodus()
+		stop_baumodus()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -102,3 +109,15 @@ func builde():
 	
 func death():
 	deadplayer.emit(self);
+	
+func start_baumodus():
+	if !baumodus: return
+	$buildhelper/bulidewood.on_bau()
+	$buildhelper/bulidewood.visible = true; 
+	print('start')
+	
+func stop_baumodus():
+	if baumodus: return
+	print('stop')
+	$buildhelper/bulidewood.on_bau()
+	$buildhelper/bulidewood.visible = false; 

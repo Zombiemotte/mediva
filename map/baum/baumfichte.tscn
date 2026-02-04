@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cxp0s3ld0yv4v"]
+
+[ext_resource type="PackedScene" uid="uid://dllsie1uj11me" path="res://tree4.glb" id="1_k17h6"]
+
+[node name="baumfichte" type="StaticBody3D" unique_id=1032746623]
+
+[node name="tree4" parent="." unique_id=913721936 instance=ExtResource("1_k17h6")]
+transform = Transform3D(1, 0, 0, 0, 0.61448956, 0, 0, 0, 1, 0.23041987, 0, -0.45424104)
